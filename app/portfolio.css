@@ -1139,3 +1139,75 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+body {
+  font-size: 18px;
+}
+
+.nav-links {
+  font-size: 1rem;
+}
+
+.eyebrow,
+.section-label,
+.info-card-label,
+.timeline-org,
+.lab-num,
+.lab-pill,
+.lab-cat {
+  font-size: 0.9rem;
+}
+
+.hero-role {
+  font-size: 0.9rem;
+}
+
+.hero-stats strong {
+  font-size: 1rem;
+}
+
+.hero-stats span,
+.timeline-badge,
+.panel-facts dt {
+  font-size: 0.9rem;
+}
+
+.panel-meta {
+  font-size: 0.9rem;
+}
+
+.panel-facts dd,
+.timeline-location {
+  font-size: 0.9rem;
+}
+
+.info-card p:last-child,
+.timeline-list,
+.bento-card > p,
+.lab-card .prose,
+.contact-copy > p {
+  font-size: 1.08rem;
+}
+
+.tags span {
+  font-size: 0.88rem;
+}
+
+.link-chip,
+.footer {
+  font-size: 0.9rem;
+}
+
+.hero-intro {
+  font-size: 1.12rem;
+}
+
+.btn {
+  font-size: 0.92rem;
+}
+
+.bento-card h3,
+.lab-card h3,
+.info-card h3 {
+  font-size: 1.1rem;
+}
