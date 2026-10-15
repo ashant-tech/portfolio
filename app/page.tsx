@@ -9,7 +9,7 @@ import {
   Network,
 } from "lucide-react";
 import { Header } from "@/components/header";
-import { experience, labs, skills } from "@/lib/content";
+import { experience, labs, skills, training } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export default function Home() {
@@ -154,6 +154,22 @@ export default function Home() {
               </ul>
             </div>
           </article>
+        </section>
+
+        <section className="section" id="training">
+          <div className="section-head">
+            <span className="section-label">Training</span>
+            <h2>Cybersecurity and risk management</h2>
+          </div>
+          <div className="lab-grid">
+            {training.map((item) => (
+              <article className="lab-card" key={item.title}>
+                <p className="lab-cat">{item.provider}</p>
+                <h3>{item.title}</h3>
+                <p className="prose muted">{item.description}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="section" id="skills">

@@ -85,15 +85,24 @@ export const labs: Lab[] = [
 
 export const experience = {
   company: "Sidama Bank",
-  role: "ICT — Networking & Security Focus",
+  role: "Junior Cybersecurity Professional",
   location: "Addis Ababa Main Office, Ethiopia",
   duration: "8 months",
   summary:
-    "Professional experience in a banking IT environment with a primary focus on networking and security.",
+    "Junior cybersecurity experience in a banking IT environment, supporting secure and reliable technology operations.",
   highlights: [
-    "Supported networking and IT infrastructure in a regulated banking environment.",
-    "Troubleshot network connectivity and access-related issues.",
-    "Applied security-aware practices to help protect organizational systems.",
-    "Contributed to reliable network services and day-to-day IT operations.",
+    "Supported day-to-day cybersecurity and IT operations in a regulated banking environment.",
+    "Helped troubleshoot network connectivity and access-related issues.",
+    "Followed security-aware practices to support the protection of organizational systems.",
+    "Contributed to reliable network services and secure technology operations.",
   ],
 };
+
+export const training = [
+  {
+    provider: "Qiyas",
+    title: "Advanced Cyber Security and Digital Risk Management",
+    description:
+      "Completed training in advanced cybersecurity and digital risk management.",
+  },
+];

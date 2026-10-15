@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
+import "./portfolio.css";
 
 const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
