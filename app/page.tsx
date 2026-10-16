@@ -1,3 +1,7 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect } from "react";
 import {
   ArrowUpRight,
   Download,
@@ -6,14 +10,33 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Network,
+  ShieldCheck,
 } from "lucide-react";
 import { Header } from "@/components/header";
-import { experience, labs, skills, training } from "@/lib/content";
+import { experience, projects, skills } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export default function Home() {
   const year = new Date().getFullYear();
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -35,12 +58,10 @@ export default function Home() {
                 </span>
               </h1>
               <p className="hero-role">
-                Networking · Cybersecurity · Software Engineering
+                Cybersecurity · Software Development
               </p>
               <p className="hero-intro">
-                Computer Engineering graduate with banking IT experience in
-                networking and security. I build reliable systems and practice
-                defensive security through hands-on labs and clear documentation.
+                I build practical web applications and help protect systems through security operations, vulnerability assessment, and penetration testing.
               </p>
               <div className="hero-actions">
                 <a className="btn btn-primary" href="#contact">
@@ -52,16 +73,16 @@ export default function Home() {
               </div>
               <ul className="hero-stats" aria-label="Focus areas">
                 <li>
-                  <strong>Networking</strong>
-                  <span>Infrastructure &amp; connectivity</span>
+                  <strong>Build</strong>
+                  <span>Full-stack apps &amp; APIs</span>
                 </li>
                 <li>
-                  <strong>Security</strong>
-                  <span>Monitoring &amp; assessment</span>
+                  <strong>Assess</strong>
+                  <span>Pen testing &amp; vulnerabilities</span>
                 </li>
                 <li>
-                  <strong>Software</strong>
-                  <span>APIs &amp; web development</span>
+                  <strong>Defend</strong>
+                  <span>Monitoring &amp; risk operations</span>
                 </li>
               </ul>
             </div>
@@ -73,7 +94,19 @@ export default function Home() {
                 <span className="panel-dot" />
               </div>
               <div className="panel-body">
-                <div className="panel-avatar">{site.shortName}</div>
+                {site.profilePhoto ? (
+                  <div className="panel-avatar">
+                    <Image
+                      src={site.profilePhoto}
+                      alt={site.name}
+                      className="profile-photo"
+                      width={160}
+                      height={160}
+                    />
+                  </div>
+                ) : (
+                  <div className="panel-avatar">{site.shortName}</div>
+                )}
                 <p className="panel-name">{site.name}</p>
                 <p className="panel-meta">
                   <MapPin size={14} aria-hidden="true" /> {site.location}
@@ -82,7 +115,7 @@ export default function Home() {
                 <dl className="panel-facts">
                   <div>
                     <dt>Focus</dt>
-                    <dd>Network &amp; security operations</dd>
+                    <dd>Cybersecurity &amp; software</dd>
                   </div>
                   <div>
                     <dt>Education</dt>
@@ -90,7 +123,7 @@ export default function Home() {
                   </div>
                   <div>
                     <dt>Experience</dt>
-                    <dd>Banking ICT · {experience.duration}</dd>
+                    <dd>{experience.length} positions</dd>
                   </div>
                 </dl>
               </div>
@@ -99,89 +132,121 @@ export default function Home() {
         </section>
 
         <section className="section" id="about">
-          <div className="section-head">
+          <div className="section-head reveal">
             <span className="section-label">About</span>
-            <h2>Security-minded engineer with a systems-first mindset</h2>
+            <h2>Cybersecurity meets software engineering</h2>
             <p className="section-lead">
-              I combine engineering fundamentals with real IT operations
-              experience—focused on how networks behave, where risk appears, and
-              how software supports secure infrastructure.
+              I bring both disciplines together: developing useful software and strengthening the systems it depends on.
             </p>
           </div>
           <div className="about-grid">
-            <p className="prose">
-              My background spans Computer Engineering, professional work in a
-              banking environment, and continued learning in cybersecurity and
-              digital risk management. I care about reliability, traceability,
-              and honest documentation.
+            <p className="prose reveal">
+              I am a Computer Engineering graduate with experience across software development and cybersecurity operations. My work includes web applications and APIs, security monitoring, vulnerability assessment, risk controls, and network security.
             </p>
-            <article className="info-card">
+            <article className="info-card reveal">
               <div className="info-card-icon">
                 <GraduationCap size={22} aria-hidden="true" />
               </div>
               <div>
                 <p className="info-card-label">Education</p>
-                <h3>BSc in Computer Engineering</h3>
+                <h3>BSc Computer Engineering</h3>
                 <p>Bahir Dar University</p>
               </div>
             </article>
           </div>
         </section>
 
-        <section className="section" id="experience">
-          <div className="section-head">
-            <span className="section-label">Experience</span>
-            <h2>Professional context</h2>
-          </div>
-          <article className="timeline-card">
-            <div className="timeline-icon">
-              <Network size={22} aria-hidden="true" />
+        <section className="section section-brand" id="brand">
+          <div className="brand-grid">
+            <div className="brand-card reveal">
+              <span className="section-label">Personal brand</span>
+              <h2>Build software. Understand risk. Make systems more secure.</h2>
+              <p>
+                My focus combines hands-on software development with practical cybersecurity: understanding how applications are built, how systems can be exposed, and how to improve visibility and resilience.
+              </p>
             </div>
-            <div className="timeline-content">
-              <div className="timeline-top">
-                <div>
-                  <p className="timeline-org">{experience.company}</p>
-                  <h3>{experience.role}</h3>
-                </div>
-                <span className="timeline-badge">{experience.duration}</span>
+            <div className="brand-metrics reveal">
+              <div className="brand-metric">
+                <strong>Software development</strong>
+                <span>Web applications, APIs, and databases</span>
               </div>
-              <p className="timeline-location">{experience.location}</p>
-              <p className="prose muted">{experience.summary}</p>
-              <ul className="timeline-list">
-                {experience.highlights.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
+              <div className="brand-metric">
+                <strong>Offensive security</strong>
+                <span>Penetration testing and vulnerability assessment</span>
+              </div>
+              <div className="brand-metric">
+                <strong>Defensive security</strong>
+                <span>Monitoring, risk assessment, and security operations</span>
+              </div>
             </div>
-          </article>
+          </div>
         </section>
 
-        <section className="section" id="training">
-          <div className="section-head">
-            <span className="section-label">Training</span>
-            <h2>Cybersecurity and risk management</h2>
+        <section className="section" id="experience">
+          <div className="section-head reveal">
+            <span className="section-label">Experience</span>
+            <h2>Experience across development and security</h2>
           </div>
-          <div className="lab-grid">
-            {training.map((item) => (
-              <article className="lab-card" key={item.title}>
-                <p className="lab-cat">{item.provider}</p>
-                <h3>{item.title}</h3>
-                <p className="prose muted">{item.description}</p>
+          {experience.map((exp) => (
+            <article className="timeline-card reveal" key={exp.company}>
+              <div className="timeline-icon">
+                <ShieldCheck size={22} aria-hidden="true" />
+              </div>
+              <div className="timeline-content">
+                <div className="timeline-top">
+                  <div>
+                    <p className="timeline-org">{exp.company}</p>
+                    <h3>{exp.role}</h3>
+                  </div>
+                  <span className="timeline-badge">{exp.duration}</span>
+                </div>
+                <p className="timeline-location">{exp.location}</p>
+                <p className="prose muted">{exp.summary}</p>
+                <ul className="timeline-list">
+                  {exp.highlights.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="section" id="projects">
+          <div className="section-head reveal">
+            <span className="section-label">Selected work</span>
+            <h2>Software &amp; cybersecurity focus</h2>
+          </div>
+          <div className="project-grid">
+            {projects.map((project) => (
+              <article className="project-card reveal" key={project.title}>
+                <div className="project-topline">
+                  <span className="project-category">{project.category}</span>
+                  <span className="project-status">{project.status}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-impact">{project.impact}</div>
+                <div className="tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
         </section>
 
         <section className="section" id="skills">
-          <div className="section-head">
+          <div className="section-head reveal">
             <span className="section-label">Capabilities</span>
-            <h2>Skills across infrastructure and application layers</h2>
+            <h2>Skills & Expertise</h2>
           </div>
           <div className="bento-grid">
             {skills.map((skill) => {
               const Icon = skill.icon;
               return (
-                <article className="bento-card" key={skill.title}>
+                <article className="bento-card reveal" key={skill.title}>
                   <div className="bento-icon">
                     <Icon size={20} aria-hidden="true" />
                   </div>
@@ -195,35 +260,6 @@ export default function Home() {
                 </article>
               );
             })}
-          </div>
-        </section>
-
-        <section className="section" id="labs">
-          <div className="section-head">
-            <span className="section-label">Labs</span>
-            <h2>Practical security learning</h2>
-            <p className="section-lead">
-              Documented lab work in monitoring, vulnerability assessment, and
-              network defense.
-            </p>
-          </div>
-          <div className="lab-grid">
-            {labs.map((lab) => (
-              <article className="lab-card" key={lab.number}>
-                <div className="lab-card-top">
-                  <span className="lab-num">{lab.number}</span>
-                  <span className="lab-pill">{lab.status}</span>
-                </div>
-                <p className="lab-cat">{lab.category}</p>
-                <h3>{lab.title}</h3>
-                <p className="prose muted">{lab.description}</p>
-                <div className="tags">
-                  {lab.tools.map((tool) => (
-                    <span key={tool}>{tool}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 
@@ -273,7 +309,7 @@ export default function Home() {
           <span>
             © {year} {site.name}
           </span>
-          <span>Networking · Cybersecurity · Software</span>
+          <span>Cybersecurity · Software Development</span>
           <a href="#home">Back to top</a>
         </footer>
       </main>

@@ -2,9 +2,9 @@
 export const site = {
   name: "Ashenafi Haile",
   shortName: "AH",
-  title: "Networking, Cybersecurity & Software",
+  title: "Cybersecurity & Software Development",
   description:
-    "Portfolio of Ashenafi Haile — Computer Engineering graduate focused on networking, cybersecurity, digital risk management, and software development.",
+    "Portfolio of Ashenafi Haile, focused on cybersecurity operations, penetration testing, secure software development, and full-stack engineering.",
   email: "ashenafihaile993@gmail.com",
   location: "Ethiopia",
   /** Production URL (used for Open Graph and sitemap). Set in env or replace here. */
@@ -14,14 +14,15 @@ export const site = {
   github: "https://github.com/ashenafihaile993",
   /** Place your PDF in `public/` and set the path, e.g. `/Ashenafi-Haile-CV.pdf`. Leave empty to hide the button. */
   cvPath: "" as string,
-  availability: "Open to opportunities in networking, security, and software",
+  /** Place your profile photo in `public/` and set the path, e.g. `/profile.jpg`. Leave empty to use initials. */
+  profilePhoto: "/profile.jpg" as string,
+  availability: "Open to software development and security opportunities",
 } as const;
 
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#training", label: "Training" },
+  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#labs", label: "Labs" },
   { href: "#contact", label: "Contact" },
 ] as const;

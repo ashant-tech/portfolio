@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 import "./portfolio.css";
-
-const sans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -32,11 +19,15 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} | ${site.title}`,
     description: site.description,
+    images: site.profilePhoto
+      ? [{ url: site.profilePhoto, width: 1200, height: 630, alt: site.name }]
+      : [],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | ${site.title}`,
     description: site.description,
+    images: site.profilePhoto ? [site.profilePhoto] : [],
   },
   robots: {
     index: true,
@@ -50,12 +41,19 @@ const personJsonLd = {
   name: site.name,
   email: site.email,
   url: site.siteUrl,
-  jobTitle: "Software Engineer",
+  jobTitle: "Cybersecurity and Software Development Professional",
+  image: site.profilePhoto ? new URL(site.profilePhoto, site.siteUrl).href : undefined,
   knowsAbout: [
-    "Networking",
-    "Cybersecurity",
     "Software Development",
-    "Digital Risk Management",
+    "Web Development",
+    "Cybersecurity",
+    "Secure Software Development",
+    "Penetration Testing",
+    "Red Team Operations",
+    "Blue Team Operations",
+    "Vulnerability Assessment",
+    "Security Monitoring",
+    "Risk Assessment",
   ],
   sameAs: [site.linkedIn, site.github].filter(Boolean),
 };
@@ -66,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en">
       <body>
         <div className="page-bg" aria-hidden="true">
           <div className="page-bg-glow page-bg-glow-a" />
