@@ -11,7 +11,7 @@ export const site = {
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://ashenafihaile.dev",
   linkedIn: "https://www.linkedin.com/in/ashenafi-haile",
-  github: "https://github.com/ashenafihaile993",
+  github: "",
   /** Place your PDF in `public/` and set the path, e.g. `/Ashenafi-Haile-CV.pdf`. Leave empty to hide the button. */
   cvPath: "" as string,
   /** Place your profile photo in `public/` and set the path, e.g. `/profile.jpg`. Leave empty to use initials. */
@@ -23,6 +23,7 @@ export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#certifications", label: "Certifications" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ] as const;

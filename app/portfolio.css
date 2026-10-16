@@ -720,6 +720,30 @@ h1, h2, h3, p { margin-top: 0; }
   font-size: 0.66rem;
 }
 
+.certification-list {
+  display: grid;
+  gap: 14px;
+}
+.certification-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card-soft);
+}
+.certification-card .info-card-icon {
+  margin: 0;
+}
+.certification-card .info-card-label {
+  margin-bottom: 5px;
+}
+.certification-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
 .section-contact {
   padding-bottom: 80px;
 }

@@ -76,7 +76,7 @@ export const labs: Lab[] = [
     category: "Vulnerability Assessment",
     title: "Security Assessment",
     description: "Identifying and prioritizing security findings.",
-    tools: ["OpenVAS", "Kali Linux", "Reporting"],
+    tools: ["Kali Linux", "Reporting"],
     status: "Completed",
   },
   {
@@ -115,7 +115,14 @@ export const projects: Project[] = [
       "Security assessment work identifying vulnerabilities, reviewing risk, and supporting security controls and reporting.",
     impact: "Connects technical findings with risk-based prioritization and defensive action.",
     status: "Security focus",
-    tags: ["Penetration Testing", "OpenVAS", "Risk Assessment", "Security Controls"],
+    tags: ["Penetration Testing", "Risk Assessment", "Security Controls"],
+  },
+];
+
+export const certifications = [
+  {
+    provider: "Qiyas Project",
+    title: "Advanced Cybersecurity & Digital Risk Management",
   },
 ];
 
@@ -124,7 +131,7 @@ export const experience = [
     company: "Sidama Bank",
     role: "Junior Cybersecurity Professional",
     location: "Addis Ababa, Ethiopia",
-    duration: "8 months",
+    duration: undefined,
     summary: "Banking IT security operations and risk management.",
     highlights: [
       "Security monitoring & vulnerability assessment",
@@ -134,7 +141,7 @@ export const experience = [
     ],
   },
   {
-    company: "Sidama Science and Technology Agency",
+    company: "Internship",
     role: "Software Development Intern",
     location: "Hawassa, Ethiopia",
     duration: "Internship",
@@ -146,8 +153,8 @@ export const experience = [
     ],
   },
   {
-    company: "Bahir Dar University",
-    role: "Final-Year Project",
+    company: "Final-Year Project",
+    role: "Computer Engineering Project",
     location: "Bahir Dar, Ethiopia",
     duration: "Academic Project",
     summary: "Software application development.",
@@ -155,6 +162,19 @@ export const experience = [
       "System design & implementation",
       "Database management",
       "Web application development",
+    ],
+  },
+  {
+    company: "Self-Development Projects",
+    role: "Software & Cybersecurity Practice",
+    location: "Independent",
+    duration: "Ongoing",
+    summary:
+      "Independent practice building software and strengthening practical cybersecurity skills.",
+    highlights: [
+      "Web applications and API development",
+      "Security monitoring and log analysis",
+      "Vulnerability assessment and risk awareness",
     ],
   },
 ];

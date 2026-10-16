@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ashenafi-portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://ashenafi-portfolio.onrender.com

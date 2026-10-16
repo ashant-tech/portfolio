@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import {
   ArrowUpRight,
+  Award,
   Download,
   Github,
   GraduationCap,
@@ -13,7 +14,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Header } from "@/components/header";
-import { experience, projects, skills } from "@/lib/content";
+import { certifications, experience, projects, skills } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export default function Home() {
@@ -123,7 +124,7 @@ export default function Home() {
                   </div>
                   <div>
                     <dt>Experience</dt>
-                    <dd>{experience.length} positions</dd>
+                    <dd>Work &amp; projects</dd>
                   </div>
                 </dl>
               </div>
@@ -134,7 +135,7 @@ export default function Home() {
         <section className="section" id="about">
           <div className="section-head reveal">
             <span className="section-label">About</span>
-            <h2>Cybersecurity meets software engineering</h2>
+            <h2>Software Development &amp; Cybersecurity</h2>
             <p className="section-lead">
               I bring both disciplines together: developing useful software and strengthening the systems it depends on.
             </p>
@@ -160,23 +161,23 @@ export default function Home() {
           <div className="brand-grid">
             <div className="brand-card reveal">
               <span className="section-label">Personal brand</span>
-              <h2>Build software. Understand risk. Make systems more secure.</h2>
+              <h2>Strengthening security across the organization.</h2>
               <p>
-                My focus combines hands-on software development with practical cybersecurity: understanding how applications are built, how systems can be exposed, and how to improve visibility and resilience.
+                My primary focus is organization-wide cybersecurity: protecting networks, endpoints, data, and business operations through security monitoring, vulnerability assessment, risk management, and effective security controls.
               </p>
             </div>
             <div className="brand-metrics reveal">
               <div className="brand-metric">
-                <strong>Software development</strong>
-                <span>Web applications, APIs, and databases</span>
+                <strong>Cybersecurity</strong>
+                <span>Monitoring, risk assessment, and system protection</span>
               </div>
               <div className="brand-metric">
                 <strong>Offensive security</strong>
                 <span>Penetration testing and vulnerability assessment</span>
               </div>
               <div className="brand-metric">
-                <strong>Defensive security</strong>
-                <span>Monitoring, risk assessment, and security operations</span>
+                <strong>Organization-wide security</strong>
+                <span>Networks, endpoints, data, operations, and risk controls</span>
               </div>
             </div>
           </div>
@@ -198,7 +199,9 @@ export default function Home() {
                     <p className="timeline-org">{exp.company}</p>
                     <h3>{exp.role}</h3>
                   </div>
-                  <span className="timeline-badge">{exp.duration}</span>
+                  {exp.duration ? (
+                    <span className="timeline-badge">{exp.duration}</span>
+                  ) : null}
                 </div>
                 <p className="timeline-location">{exp.location}</p>
                 <p className="prose muted">{exp.summary}</p>
@@ -263,6 +266,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section" id="certifications">
+          <div className="section-head">
+            <span className="section-label">Certification</span>
+            <h2>Cybersecurity &amp; digital risk</h2>
+          </div>
+          <div className="certification-list">
+            {certifications.map((certification) => (
+              <article className="certification-card" key={certification.title}>
+                <div className="info-card-icon">
+                  <Award size={22} aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="info-card-label">{certification.provider}</p>
+                  <h3>{certification.title}</h3>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section section-contact" id="contact">
           <div className="contact-shell">
             <div className="contact-copy">
@@ -285,16 +308,18 @@ export default function Home() {
                 LinkedIn
                 <ArrowUpRight size={14} aria-hidden="true" />
               </a>
-              <a
-                className="link-chip"
-                href={site.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={16} aria-hidden="true" />
-                GitHub
-                <ArrowUpRight size={14} aria-hidden="true" />
-              </a>
+              {site.github ? (
+                <a
+                  className="link-chip"
+                  href={site.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github size={16} aria-hidden="true" />
+                  GitHub
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+              ) : null}
               {site.cvPath ? (
                 <a className="link-chip" href={site.cvPath} download>
                   <Download size={16} aria-hidden="true" />
