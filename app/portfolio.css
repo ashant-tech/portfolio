@@ -353,8 +353,14 @@ h1, h2, h3, p { margin-top: 0; }
   justify-content: space-between;
   gap: 10px;
 }
+.panel-facts dt,
+.panel-facts dd {
+  padding: 8px 10px;
+  border-radius: 10px;
+}
 .panel-facts dt {
-  color: var(--muted);
+  background: #000;
+  color: #fff;
   font-family: var(--mono);
   font-size: 0.73rem;
   letter-spacing: 0.06em;
@@ -362,7 +368,8 @@ h1, h2, h3, p { margin-top: 0; }
 }
 .panel-facts dd {
   margin: 0;
-  color: var(--muted-strong);
+  background: #fff;
+  color: #111827;
   font-size: 0.8rem;
   font-weight: 600;
   text-align: right;
@@ -455,14 +462,31 @@ h1, h2, h3, p { margin-top: 0; }
   display: grid;
   gap: 6px;
   padding: 20px 18px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+}
+.brand-metric:nth-child(1) {
+  border-color: #38bdf8;
+  background: #38bdf8;
+  color: #082f49;
+}
+.brand-metric:nth-child(2) {
+  border-color: #c4b5fd;
+  background: #c4b5fd;
+  color: #2e1065;
+}
+.brand-metric:nth-child(3) {
+  border-color: #86efac;
+  background: #86efac;
+  color: #052e16;
 }
 .brand-metric strong {
-  font-size: 1.04rem;
+  font-size: 1.2rem;
 }
 .brand-metric span {
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.6;
+  color: inherit;
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .about-grid {
@@ -513,6 +537,13 @@ h1, h2, h3, p { margin-top: 0; }
 .info-card h3 {
   margin-bottom: 4px;
   font-size: 1.05rem;
+}
+.info-card h3.education-degree {
+  color: #38bdf8;
+}
+.info-card p.education-institution {
+  color: #fff;
+  font-weight: 600;
 }
 .info-card p:last-child {
   margin-bottom: 0;
@@ -599,6 +630,123 @@ h1, h2, h3, p { margin-top: 0; }
   border-radius: 50%;
   background: var(--primary);
 }
+.timeline-list li.experience-security {
+  border-color: rgba(138, 168, 255, 0.38);
+  border-left-color: var(--primary);
+  background: #fff;
+  color: #3154a5;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-security::before { background: #3154a5; }
+.timeline-list li.experience-risk {
+  border-color: rgba(185, 166, 255, 0.38);
+  border-left-color: var(--highlight);
+  background: #fff;
+  color: #6342a3;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-risk::before { background: #6342a3; }
+.timeline-list li.experience-compliance {
+  border-color: rgba(251, 191, 36, 0.38);
+  border-left-color: var(--warning);
+  background: #fff;
+  color: #805300;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-compliance::before { background: #805300; }
+.timeline-list li.experience-network {
+  border-color: rgba(103, 240, 214, 0.38);
+  border-left-color: var(--accent);
+  background: #fff;
+  color: #087564;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-network::before { background: #087564; }
+.timeline-list li.experience-development {
+  border-color: #f2c9a5;
+  border-left-color: #a45119;
+  background: #fff;
+  color: #783b13;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-development::before { background: #a45119; }
+.timeline-list li.experience-reporting {
+  border-color: #a8d6d1;
+  border-left-color: #28756e;
+  background: #fff;
+  color: #205c57;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-reporting::before { background: #28756e; }
+.timeline-list li.experience-api {
+  border-color: #d9c1a8;
+  border-left-color: #805d36;
+  background: #fff;
+  color: #644729;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-api::before { background: #805d36; }
+.timeline-list li.experience-system-design {
+  border-color: #c7d2e2;
+  border-left-color: #526985;
+  background: #fff;
+  color: #40536b;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-system-design::before { background: #526985; }
+.timeline-list li.experience-database {
+  border-color: #e6c1ce;
+  border-left-color: #a64d6a;
+  background: #fff;
+  color: #813b53;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-database::before { background: #a64d6a; }
+.timeline-list li.experience-web-app {
+  border-color: #cbd6a7;
+  border-left-color: #667b32;
+  background: #fff;
+  color: #526526;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-web-app::before { background: #667b32; }
+.timeline-list li.experience-practice-web {
+  border-color: #b8d9e8;
+  border-left-color: #397b98;
+  background: #fff;
+  color: #2f647b;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-practice-web::before { background: #397b98; }
+.timeline-list li.experience-practice-monitoring {
+  border-color: #d6c9e7;
+  border-left-color: #765b99;
+  background: #fff;
+  color: #5b4777;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-practice-monitoring::before { background: #765b99; }
+.timeline-list li.experience-practice-risk {
+  border-color: #ead4ac;
+  border-left-color: #946c2f;
+  background: #fff;
+  color: #755523;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.timeline-list li.experience-practice-risk::before { background: #946c2f; }
 
 .project-grid {
   display: grid;
@@ -719,6 +867,102 @@ h1, h2, h3, p { margin-top: 0; }
   font-family: var(--mono);
   font-size: 0.66rem;
 }
+.tags span.tag-penetration {
+  border-color: #9bbad4;
+  background: #eaf3fb;
+  color: #285578;
+  font-weight: 700;
+}
+.tags span.tag-vulnerability-assessment {
+  border-color: #a9c9bb;
+  background: #edf6f1;
+  color: #315b46;
+  font-weight: 700;
+}
+.tags span.tag-exploitation {
+  border-color: #e0b99d;
+  background: #fbf0e8;
+  color: #794b30;
+  font-weight: 700;
+}
+.tags span.tag-attack-simulation {
+  border-color: #d4b6c3;
+  background: #f8edf2;
+  color: #78445b;
+  font-weight: 700;
+}
+.tags span.tag-security-monitoring {
+  border-color: #aac9d8;
+  background: #edf5f8;
+  color: #315c70;
+  font-weight: 700;
+}
+.tags span.tag-incident-response {
+  border-color: #d8c394;
+  background: #f8f3e7;
+  color: #705a27;
+  font-weight: 700;
+}
+.tags span.tag-risk {
+  border-color: #c2b3d9;
+  background: #f2edf8;
+  color: #5e4a7c;
+  font-weight: 700;
+}
+.tags span.tag-controls {
+  border-color: #d9b49d;
+  background: #fbefe8;
+  color: #794b30;
+  font-weight: 700;
+}
+.tags span.tag-siem {
+  border-color: #527968;
+  background: #fff;
+  color: #315b46;
+  font-weight: 700;
+}
+.tags span.tag-wazuh {
+  border-color: #89644c;
+  background: #fff;
+  color: #70452c;
+  font-weight: 700;
+}
+.tags span.tag-log-analysis {
+  border-color: #6c639c;
+  background: #fff;
+  color: #51477f;
+  font-weight: 700;
+}
+.tags span.tag-threat-detection {
+  border-color: #4e7782;
+  background: #fff;
+  color: #315c68;
+  font-weight: 700;
+}
+.tags span.tag-web-development {
+  border-color: #9bbad4;
+  background: #eaf3fb;
+  color: #285578;
+  font-weight: 700;
+}
+.tags span.tag-rest-apis {
+  border-color: #b7c99b;
+  background: #eff5e7;
+  color: #4f642d;
+  font-weight: 700;
+}
+.tags span.tag-databases {
+  border-color: #d9b49d;
+  background: #fbefe8;
+  color: #794b30;
+  font-weight: 700;
+}
+.tags span.tag-python {
+  border-color: #c2b3d9;
+  background: #f2edf8;
+  color: #5e4a7c;
+  font-weight: 700;
+}
 
 .certification-list {
   display: grid;
@@ -740,7 +984,13 @@ h1, h2, h3, p { margin-top: 0; }
   margin-bottom: 5px;
 }
 .certification-card h3 {
+  display: inline-block;
   margin: 0;
+  padding: 6px 10px;
+  border: 1px solid #9bbad4;
+  border-radius: 8px;
+  background: #fff;
+  color: #0369a1;
   font-size: 1rem;
 }
 

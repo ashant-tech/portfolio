@@ -17,6 +17,41 @@ import { Header } from "@/components/header";
 import { certifications, experience, projects, skills } from "@/lib/content";
 import { site } from "@/lib/site";
 
+const tagColorClasses: Record<string, string> = {
+  "Penetration Testing": "tag-penetration",
+  "Vulnerability Assessment": "tag-vulnerability-assessment",
+  Exploitation: "tag-exploitation",
+  "Attack Simulation": "tag-attack-simulation",
+  "Security Monitoring": "tag-security-monitoring",
+  "Incident Response": "tag-incident-response",
+  "Risk Assessment": "tag-risk",
+  "Security Controls": "tag-controls",
+  SIEM: "tag-siem",
+  Wazuh: "tag-wazuh",
+  "Log Analysis": "tag-log-analysis",
+  "Threat Detection": "tag-threat-detection",
+  "Web Development": "tag-web-development",
+  "REST APIs": "tag-rest-apis",
+  Databases: "tag-databases",
+  Python: "tag-python",
+};
+
+const experienceColorClasses: Record<string, string> = {
+  "Security monitoring & vulnerability assessment": "experience-security",
+  "IT risk assessment & controls": "experience-risk",
+  "Security documentation & compliance": "experience-compliance",
+  "Network security operations": "experience-network",
+  "Full-stack web development": "experience-development",
+  "Reporting systems": "experience-reporting",
+  "API development": "experience-api",
+  "System design & implementation": "experience-system-design",
+  "Database management": "experience-database",
+  "Web application development": "experience-web-app",
+  "Web applications and API development": "experience-practice-web",
+  "Security monitoring and log analysis": "experience-practice-monitoring",
+  "Vulnerability assessment and risk awareness": "experience-practice-risk",
+};
+
 export default function Home() {
   const year = new Date().getFullYear();
 
@@ -150,8 +185,8 @@ export default function Home() {
               </div>
               <div>
                 <p className="info-card-label">Education</p>
-                <h3>BSc Computer Engineering</h3>
-                <p>Bahir Dar University</p>
+                <h3 className="education-degree">BSc Computer Engineering</h3>
+                <p className="education-institution">Bahir Dar University</p>
               </div>
             </article>
           </div>
@@ -207,7 +242,9 @@ export default function Home() {
                 <p className="prose muted">{exp.summary}</p>
                 <ul className="timeline-list">
                   {exp.highlights.map((point) => (
-                    <li key={point}>{point}</li>
+                    <li className={experienceColorClasses[point]} key={point}>
+                      {point}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -232,8 +269,13 @@ export default function Home() {
                 <div className="project-impact">{project.impact}</div>
                 <div className="tags">
                   {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                  <span
+                    className={tagColorClasses[tag]}
+                    key={tag}
+                  >
+                    {tag}
+                  </span>
+                ))}
                 </div>
               </article>
             ))}
@@ -257,7 +299,12 @@ export default function Home() {
                   <p>{skill.description}</p>
                   <div className="tags">
                     {skill.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
+                      <span
+                        className={tagColorClasses[tag]}
+                        key={tag}
+                      >
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </article>
